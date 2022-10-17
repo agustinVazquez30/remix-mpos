@@ -1,0 +1,68 @@
+import styled from 'styled-components';
+
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  max-width: 580px;
+  padding-left: ${({theme}) => theme.spacing.lg};
+  padding-right: ${({theme}) => theme.spacing.lg};
+  cursor: default;
+
+  .backgroundCloseIcon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    width: 88px;
+    height: 88px;
+    background-color: ${({theme}) => theme.colors.danger[100]};
+    border-radius: 50px;
+    margin-top: 14px;
+
+    ${({theme}) => theme.breakpointsMinWidth.sm} {
+      width: 96px;
+      height: 96px;
+      margin-top: 100px;
+    }
+  }
+
+  .closeIcon {
+    fill: ${({theme}) => theme.colors.danger[500]};
+    width: 58.67px;
+    height: 58.67px;
+  }
+
+  .title-container {
+    margin: 20px 0;
+  }
+
+  .title {
+    color: ${({theme}) => theme.colors.secondary[700]};
+    max-width: 400px;
+    margin: 0;
+  }
+
+  .message {
+    color: ${({theme}) => theme.colors.secondary[700]};
+    display: inline;
+    margin: 0;
+  }
+
+  .emailText {
+    color: ${({theme}) => theme.colors.info[500]};
+  }
+
+  button {
+    margin-top: ${({theme}) => theme.spacing.lg};
+    span {
+      margin: 0 9px;
+    }
+    path {
+      fill: ${({theme}) => theme.colors.success[500]};
+    }
+  }
+`;
