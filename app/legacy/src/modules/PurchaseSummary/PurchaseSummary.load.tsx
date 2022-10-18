@@ -24,7 +24,6 @@ export const PurchaseSummaryLoad = ({ data }: any) => {
   const { State: noShowLoginPos } = useSplitIO(
     SplitIOTreatmentNames.ActivationNoLoginPOS
   );
-
   const { mposQuantity } = purchaseSummary;
 
   const { mposValue, mposProduct, costOfShipping } = parseApiData(data);

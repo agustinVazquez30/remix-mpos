@@ -5,7 +5,7 @@ import {
   Typography,
 } from "@30sas/web-ui-kit-core";
 import { AuthenticationModal, PurchaseDetail } from "./components";
-import { Card, Spinner } from "~/legacy/src/commons/components";
+import { Card } from "~/legacy/src/commons/components";
 import {
   PurchaseSummaryPayload,
   useAppContext,
@@ -64,7 +64,7 @@ export const PurchaseSummary = ({
   useEffect(() => {
     const total = mposValue * mposQuantityLocal;
     setTotal(total);
-  }, [mposValue, costOfShipping, mposQuantityLocal]);
+  }, [mposQuantityLocal, mposValue]);
 
   const handleOnContinue = () => {
     if (!hasAcceptedPurchasedOrder) {
@@ -79,8 +79,6 @@ export const PurchaseSummary = ({
 
     onContinue(purchaseSummary, false);
   };
-
-  if (isLoading) return <Spinner />;
 
   return (
     <Container>
@@ -175,7 +173,6 @@ export const PurchaseSummary = ({
         onLogin={() => onLogin(purchaseSummary)}
         onContinue={() => onContinue(purchaseSummary, true)}
       />
-      {isLoading && <Spinner fullScreen={true} />}
     </Container>
   );
 };
