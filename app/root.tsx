@@ -8,12 +8,18 @@ import {
   ScrollRestoration,
   useLoaderData,
 } from "@remix-run/react";
+import { useMemo, useState } from "react";
 import { DefaultTheme, ThemeProvider } from "styled-components";
 import { Theme } from "./legacy/src/config/Theme";
 import {
   AppContext,
+  AppContextKeys,
   defaultAppContext,
+  defaultAppState,
+  getAppActions,
+  useAppContext,
 } from "./legacy/src/contexts/AppContext";
+import { getItemFromStorage } from "./legacy/src/contexts/AppContext/utils";
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
@@ -43,6 +49,13 @@ export const links: LinksFunction = () => {
 
 export default function App() {
   const envs = useLoaderData();
+  const [state, setState] = useState<any>({});
+
+  const data = {
+    ...JSON.parse(getItemFromStorage(AppContextKeys.APP)),
+    ...getAppActions(setState as any),
+  };
+
   return (
     <html lang="en">
       <head>
@@ -51,7 +64,7 @@ export default function App() {
         {typeof document === "undefined" ? "__STYLES__" : null}
       </head>
       <body>
-        <AppContext.Provider value={defaultAppContext}>
+        <AppContext.Provider value={{ ...data, ...state }}>
           <ThemeProvider theme={Theme as DefaultTheme}>
             <Outlet />
           </ThemeProvider>

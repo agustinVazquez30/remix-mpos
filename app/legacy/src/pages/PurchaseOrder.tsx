@@ -6,11 +6,8 @@ import YourMPOS from "~/legacy/src/assets/your-mpos.png";
 import YourNewMPOS from "~/legacy/src/assets/mpos-background.png";
 import { useAppContext } from "~/legacy/src/contexts/AppContext";
 import { useEffect } from "react";
-import { useShowZendesk } from "~/legacy/src/utils/zendesk";
 
 export const PurchaseOrder = ({ data }: any) => {
-  // useShowZendesk();
-
   const { splitIOKeyValue, setSplitIOKeyValue } = useAppContext();
 
   const { State: isActivationPOSValuesSummary, loading: isLoadingSplit } =
