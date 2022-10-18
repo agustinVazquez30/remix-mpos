@@ -3385,6 +3385,13 @@
   dependencies:
     "@types/node" "*"
 
+"@types/i18next-fs-backend@^1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@types/i18next-fs-backend/-/i18next-fs-backend-1.1.2.tgz#4f3116769229371fcdf64bbdb6841ea745e392f9"
+  integrity sha512-ZzTRXA5B0x0oGhzKNp08IsYjZpli4LjRZpg3q4j0XFxN5lKG2MVLnR4yHX8PPExBk4sj9Yfk1z9O6CjPrAlmIQ==
+  dependencies:
+    i18next "^21.0.1"
+
 "@types/inquirer@^8.1.3":
   version "8.2.4"
   resolved "https://registry.yarnpkg.com/@types/inquirer/-/inquirer-8.2.4.tgz#f7f0c76c65870c7bbc80a112c9c77ffcf7f158c1"
@@ -3982,6 +3989,11 @@ abort-controller@^3.0.0:
   integrity sha512-h8lQ8tacZYnR3vNQTgibj+tODHI5/+l06Au2Pcriv/Gmet0eaj4TwWH41sO9wnHDiQsEj19q0drzdWdeAHtweg==
   dependencies:
     event-target-shim "^5.0.0"
+
+accept-language-parser@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/accept-language-parser/-/accept-language-parser-1.5.0.tgz#8877c54040a8dcb59e0a07d9c1fde42298334791"
+  integrity sha512-QhyTbMLYo0BBGg1aWbeMG4ekWtds/31BrEU+DONOg/7ax23vxpL03Pb7/zBmha2v7vdD3AyzZVWBVGEZxKOXWw==
 
 accepts@~1.3.4, accepts@~1.3.5, accepts@~1.3.8:
   version "1.3.8"
@@ -5479,6 +5491,13 @@ cross-env@^7.0.3:
   integrity sha512-+/HKd6EgcQCJGh2PSjZuUitQBQynKor4wrFbRg4DtAgS1aWO+gU52xpH7M9ScGgXSYmAVS9bIJ8EzuaGw0oNAw==
   dependencies:
     cross-spawn "^7.0.1"
+
+cross-fetch@3.1.5:
+  version "3.1.5"
+  resolved "https://registry.yarnpkg.com/cross-fetch/-/cross-fetch-3.1.5.tgz#e1389f44d9e7ba767907f7af8454787952ab534f"
+  integrity sha512-lvb1SBsI0Z7GDwmuid+mU3kWVBwTVUbe7S0H52yaaAdQOXq2YktTCZdlAcNKFzE6QtRz0snpw9bNiPeOIkkQvw==
+  dependencies:
+    node-fetch "2.6.7"
 
 cross-spawn@^5.0.1:
   version "5.1.0"
@@ -8368,7 +8387,26 @@ human-signals@^2.1.0:
   resolved "https://registry.yarnpkg.com/human-signals/-/human-signals-2.1.0.tgz#dc91fcba42e4d06e4abaed33b3e7a3c02f514ea0"
   integrity sha512-B4FFZ6q/T2jhhksgkbEW3HBvWIfDW85snkQgawt07S7J5QXTk6BkNV+0yAeZrM5QpMAdYlocGoljn0sJ/WQkFw==
 
-i18next@^21.6.5:
+i18next-browser-languagedetector@^6.1.8:
+  version "6.1.8"
+  resolved "https://registry.yarnpkg.com/i18next-browser-languagedetector/-/i18next-browser-languagedetector-6.1.8.tgz#8e9c61b32a4dfe9b959b38bc9d2a8b95f799b27c"
+  integrity sha512-Svm+MduCElO0Meqpj1kJAriTC6OhI41VhlT/A0UPjGoPZBhAHIaGE5EfsHlTpgdH09UVX7rcc72pSDDBeKSQQA==
+  dependencies:
+    "@babel/runtime" "^7.19.0"
+
+i18next-fs-backend@^1.1.5:
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/i18next-fs-backend/-/i18next-fs-backend-1.1.5.tgz#dcbd8227b1c1e4323b3c40e269d4762e8313d9e5"
+  integrity sha512-raTel3EfshiUXxR0gvmIoqp75jhkj8+7R1LjB006VZKPTFBbXyx6TlUVhb8Z9+7ahgpFbcQg1QWVOdf/iNzI5A==
+
+i18next-http-backend@^1.4.4:
+  version "1.4.4"
+  resolved "https://registry.yarnpkg.com/i18next-http-backend/-/i18next-http-backend-1.4.4.tgz#9f372f704975a5e96ce74e4247698bcbd00d148f"
+  integrity sha512-M4gLPe6JKZ2p1UmE6t4rzWV/sAxgrLThW7ztXAsTpFwFqXoyzhTzX8eYxVv9KjpCQh4K9nwxnEjEi+74C4Thbg==
+  dependencies:
+    cross-fetch "3.1.5"
+
+i18next@^21.0.1, i18next@^21.6.5:
   version "21.10.0"
   resolved "https://registry.yarnpkg.com/i18next/-/i18next-21.10.0.tgz#85429af55fdca4858345d0e16b584ec29520197d"
   integrity sha512-YeuIBmFsGjUfO3qBmMOc0rQaun4mIpGKET5WDwvu8lU7gvwpcariZLNtL0Fzj+zazcHUrlXHiptcFhBMFaxzfg==
@@ -8609,6 +8647,11 @@ internal-slot@^1.0.3:
     get-intrinsic "^1.1.0"
     has "^1.0.3"
     side-channel "^1.0.4"
+
+intl-parse-accept-language@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/intl-parse-accept-language/-/intl-parse-accept-language-1.0.0.tgz#204d1bc0b13c5baea7775f5eeb95bef2b795675c"
+  integrity sha512-YFMSV91JNBOSjw1cOfw2tup6hDP7mkz+2AUV7W1L1AM6ntgI75qC1ZeFpjPGMrWp+upmBRTX2fJWQ8c7jsUWpA==
 
 intl@^1.2.5:
   version "1.2.5"
@@ -10177,6 +10220,11 @@ lru-cache@^6.0.0:
   integrity sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA==
   dependencies:
     yallist "^4.0.0"
+
+lru-cache@^7.10.0:
+  version "7.14.0"
+  resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-7.14.0.tgz#21be64954a4680e303a09e9468f880b98a0b3c7f"
+  integrity sha512-EIRtP1GrSJny0dqb50QXRUNBxHJhcpxHC++M5tD7RYbvLLn5KVWKsbyswSSqDuU15UFi3bgTQIY8nhDMeF6aDQ==
 
 lz-string@^1.4.4:
   version "1.4.4"
@@ -13036,6 +13084,16 @@ remark-rehype@^9.0.0:
     mdast-util-to-hast "^11.0.0"
     unified "^10.0.0"
 
+remix-i18next@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/remix-i18next/-/remix-i18next-4.1.1.tgz#7d4b834f08258303a1bd88c0ca3b6522b33fb440"
+  integrity sha512-uyHzycfyUPrqA039UGSpfC/5xUMidmxp+b8oTTl9/ghB75tLR24XuRv28eJzS1HeautJI4l/v/iC8L3cVnZK7A==
+  dependencies:
+    accept-language-parser "^1.5.0"
+    intl-parse-accept-language "^1.0.0"
+    lru-cache "^7.10.0"
+    use-consistent-value "^1.0.0"
+
 renderkid@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/renderkid/-/renderkid-3.0.0.tgz#5fd823e4d6951d37358ecc9a58b1f06836b6268a"
@@ -14906,6 +14964,13 @@ use-callback-ref@^1.2.5:
   integrity sha512-3FT9PRuRdbB9HfXhEq35u4oZkvpJ5kuYbpqhCfmiZyReuRgpnhDlbr2ZEnnuS0RrJAPn6l23xjFg9kpDM+Ms7w==
   dependencies:
     tslib "^2.0.0"
+
+use-consistent-value@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/use-consistent-value/-/use-consistent-value-1.0.0.tgz#6b9143de2f94524cbc41f0e315822a08ed7a8d45"
+  integrity sha512-enIOysu0IwqjafsUXvhZPajB6UYjxwu8w38xWaHLfVs1onIyg2c0DwPgcknxqO0TpYpAHXdFDXOp7Cs9HbTIkw==
+  dependencies:
+    fast-deep-equal "^3.1.3"
 
 use-sidecar@^1.0.5:
   version "1.1.2"

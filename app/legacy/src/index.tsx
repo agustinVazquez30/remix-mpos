@@ -1,4 +1,3 @@
-import "~/legacy/src/config/Translation";
 import "~/legacy/src/config/Amplitude";
 
 import { DefaultTheme, ThemeProvider } from "styled-components";
