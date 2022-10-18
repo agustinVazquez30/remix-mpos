@@ -1,12 +1,12 @@
-import {holidays_CO} from './co';
+import { holidays_CO } from "./co";
 
-const countryId = process.env.REACT_APP_COUNTRY!;
+const countryId = window.ENV?.REACT_APP_COUNTRY!;
 
 const holidaysDictionary: Record<string, string[]> = {
-  '1': holidays_CO,
+  "1": holidays_CO,
 };
 
-const padTo2Digits = (num: number): string => num.toString().padStart(2, '0');
+const padTo2Digits = (num: number): string => num.toString().padStart(2, "0");
 
 export const isHoliday = (date: Date): boolean => {
   const holidaysList = holidaysDictionary?.[countryId] ?? [];
@@ -14,7 +14,7 @@ export const isHoliday = (date: Date): boolean => {
     date.getFullYear(),
     padTo2Digits(date.getMonth() + 1),
     padTo2Digits(date.getDate()),
-  ].join('/');
+  ].join("/");
 
   return holidaysList.includes(formattedDate);
 };

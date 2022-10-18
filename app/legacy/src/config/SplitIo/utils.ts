@@ -10,28 +10,26 @@ export const useSplitIO = (
 ): Record<string, boolean> => {
   const [State, setState] = useState(false);
   const [loading, setLoading] = useState(true);
-  const userID = userId || getUUID();
 
-  useEffect(() => {
-    const splitIOInstance = SplitIOSingleton.getInstance();
-    const factory = splitIOInstance.initFactory(userID);
-    const client: SplitIO.IClient = factory.client();
+  // useEffect(() => {
+  //   const splitIOInstance = SplitIOSingleton.getInstance();
+  //   const factory = splitIOInstance.initFactory(userID);
 
-    client.on(client.Event.SDK_READY, () => {
-      const treatment: SplitIO.Treatment = client.getTreatment(Name, {
-        userID,
-      });
+  //   client.on(client.Event.SDK_READY, () => {
+  //     const treatment: SplitIO.Treatment = client.getTreatment(Name, {
+  //       userID,
+  //     });
 
-      const treatmentState: Record<string, boolean> = {
-        on: true,
-        off: false,
-        control: false,
-      };
+  //     const treatmentState: Record<string, boolean> = {
+  //       on: true,
+  //       off: false,
+  //       control: false,
+  //     };
 
-      setState(treatmentState[treatment]);
-      setLoading(false);
-    });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  //     setState(treatmentState[treatment]);
+  //     setLoading(false);
+  //   });
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
   return { State, loading };
 };

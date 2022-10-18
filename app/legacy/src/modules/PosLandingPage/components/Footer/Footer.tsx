@@ -125,14 +125,14 @@ export const Footer = ({ help }: Props) => {
           <Typography>Contáctanos</Typography>
         </LinkFooter>
         <LinkFooter
-          onClick={() => redirect(process.env.REACT_APP_TERMS_CONDITIONS_URL!)}
+          onClick={() => redirect(window.ENV?.REACT_APP_TERMS_CONDITIONS_URL!)}
         >
           <Typography>
             {t("posLandingPage.footer.termsAndConditions")}
           </Typography>
         </LinkFooter>
         <LinkFooter
-          onClick={() => redirect(process.env.REACT_APP_DATA_PRIVACY_URL!)}
+          onClick={() => redirect(window.ENV?.REACT_APP_DATA_PRIVACY_URL!)}
         >
           <Typography>{t("posLandingPage.footer.dataPrivacy")}</Typography>
         </LinkFooter>

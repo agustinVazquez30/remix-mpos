@@ -471,7 +471,7 @@ export const BasicInformationLoad = () => {
   const formatPhoneNumber = useCallback((): PhoneNumber => {
     const rawPhoneNumber =
       storesInfo?.[0]?.phone || userInfo?.phone || phoneNumber.number || "";
-    const countryId = Number(process.env.REACT_APP_COUNTRY || -1);
+    const countryId = Number(window.ENV?.REACT_APP_COUNTRY || -1);
     const countryCode =
       getCountry(Number(countryId) as CountriesIds).code || "";
 
@@ -485,7 +485,7 @@ export const BasicInformationLoad = () => {
   }, [storesInfo, userInfo, phoneNumber]);
 
   const handleSendOTP = useCallback(async () => {
-    const recaptchaApiKey = process.env.REACT_APP_RECAPTCHA_API_KEY;
+    const recaptchaApiKey = window.ENV?.REACT_APP_RECAPTCHA_API_KEY;
     if (!recaptchaApiKey) {
       throw new Error(RECAPTCHA_ERROR);
     }

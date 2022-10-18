@@ -10,25 +10,23 @@ declare global {
 }
 
 export const useSetupZendesk = () => {
-  useEffect(() => {
-    window.zE("webWidget", "hide");
-    window.zE("webWidget", "setLocale", "es");
-    window.zE("webWidget", "chat:addTags", ["POS-Activation"]);
-  }, []);
+  // useEffect(() => {
+  //   window.zE("webWidget", "hide");
+  //   window.zE("webWidget", "setLocale", "es");
+  //   window.zE("webWidget", "chat:addTags", ["POS-Activation"]);
+  // }, []);
 };
 
 export const useShowZendesk = () => {
-  const { splitIOKeyValue } = useAppContext();
-  const showZendeskChat =
-    splitIOKeyValue[SplitIOTreatmentNames.ActivationPOSCXZendesk];
-
-  useEffect(() => {
-    if (showZendeskChat) {
-      window.zE("webWidget", "show");
-    }
-
-    return () => {
-      window.zE("webWidget", "hide");
-    };
-  }, [showZendeskChat]);
+  // const { splitIOKeyValue } = useAppContext();
+  // const showZendeskChat =
+  //   splitIOKeyValue[SplitIOTreatmentNames.ActivationPOSCXZendesk];
+  // useEffect(() => {
+  //   if (showZendeskChat) {
+  //     window.zE("webWidget", "show");
+  //   }
+  //   return () => {
+  //     window.zE("webWidget", "hide");
+  //   };
+  // }, [showZendeskChat]);
 };

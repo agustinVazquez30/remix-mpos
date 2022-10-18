@@ -1,13 +1,13 @@
-import {SplitFactory} from '@splitsoftware/splitio';
+import { SplitFactory } from "@splitsoftware/splitio";
 
 export class SplitIOSingleton {
   private static instance: SplitIOSingleton;
 
   initFactory(userID: string): SplitIO.ISDK {
-    const apiKey = process.env.REACT_APP_SPLIT_IO;
+    const apiKey = window.ENV?.REACT_APP_SPLIT_IO;
     return SplitFactory({
       core: {
-        authorizationKey: apiKey || '',
+        authorizationKey: apiKey || "",
         key: userID,
       },
     });

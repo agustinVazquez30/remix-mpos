@@ -9,7 +9,7 @@ import { useEffect } from "react";
 import { useShowZendesk } from "~/legacy/src/utils/zendesk";
 
 export const PurchaseOrder = ({ data }: any) => {
-  useShowZendesk();
+  // useShowZendesk();
 
   const { splitIOKeyValue, setSplitIOKeyValue } = useAppContext();
 

@@ -101,13 +101,13 @@ export const Init = (): JSX.Element => {
       headers: {
         authorization: `Bearer ${loginInfo?.idToken || ""}`,
         "user-uid": loginInfo?.uid ?? dataToken?.uid,
-        "x-api-key": process.env.REACT_APP_ORCHESTRATOR_KEY || "",
+        "x-api-key": window.ENV?.REACT_APP_ORCHESTRATOR_KEY || "",
       },
     },
     onSuccess: (response) => {
       if (response) {
         const countryId =
-          response.countryId || process.env.REACT_APP_COUNTRY || -1;
+          response.countryId || window.ENV?.REACT_APP_COUNTRY || -1;
         const countryCode =
           getCountry(Number(countryId) as CountriesIds).code || "";
         const phoneNumber: PhoneNumber = {
@@ -141,7 +141,7 @@ export const Init = (): JSX.Element => {
             url: `users/info/${loginInfo?.uid ?? dataToken?.uid}`,
             headers: {
               "user-uid": loginInfo?.uid ?? dataToken?.uid,
-              "x-api-key": process.env.REACT_APP_ORCHESTRATOR_KEY || "",
+              "x-api-key": window.ENV?.REACT_APP_ORCHESTRATOR_KEY || "",
             },
           })
         ).then(() => {
@@ -156,7 +156,7 @@ export const Init = (): JSX.Element => {
           url: `users/info/${loginInfo?.uid ?? dataToken?.uid}`,
           headers: {
             "user-uid": loginInfo?.uid ?? dataToken?.uid,
-            "x-api-key": process.env.REACT_APP_ORCHESTRATOR_KEY || "",
+            "x-api-key": window.ENV?.REACT_APP_ORCHESTRATOR_KEY || "",
           },
         })
       ).then(() => {

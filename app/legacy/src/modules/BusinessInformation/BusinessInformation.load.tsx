@@ -271,7 +271,7 @@ export const BusinessInformationLoad = () => {
                 businessInformation.documentType === DOCUMENT_PEP_COL
                   ? basicInformation.lastName
                   : "",
-              countryCode: process.env.REACT_APP_COUNTRY,
+              countryCode: window.ENV?.REACT_APP_COUNTRY,
               storeId: returnStoreId(),
             },
           });
@@ -324,7 +324,7 @@ export const BusinessInformationLoad = () => {
             businessInformation.documentType === DOCUMENT_PEP_COL
               ? basicInformation.lastName
               : "",
-          countryCode: process.env.REACT_APP_COUNTRY,
+          countryCode: window.ENV?.REACT_APP_COUNTRY,
           storeId: returnStoreId(),
         },
       });
@@ -547,7 +547,7 @@ export const BusinessInformationLoad = () => {
               businessInformation.documentType === DOCUMENT_PEP_COL
                 ? basicInformation.lastName
                 : "",
-            countryCode: process.env.REACT_APP_COUNTRY,
+            countryCode: window.ENV?.REACT_APP_COUNTRY,
             storeId: KYCProcessInfo.current.storeId,
           },
         });

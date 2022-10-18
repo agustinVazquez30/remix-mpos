@@ -195,7 +195,7 @@ export const BasicInformation = ({
           <a
             data-testid="terms-conditions-link"
             className="link"
-            href={process.env.REACT_APP_TERMS_CONDITIONS_URL}
+            href={window.ENV?.REACT_APP_TERMS_CONDITIONS_URL}
             target="_blank"
             rel="noreferrer"
           >
@@ -205,7 +205,7 @@ export const BasicInformation = ({
           <a
             data-testid="data-privacy-link"
             className="link"
-            href={process.env.REACT_APP_DATA_PRIVACY_URL}
+            href={window.ENV?.REACT_APP_DATA_PRIVACY_URL}
             target="_blank"
             rel="noreferrer"
           >

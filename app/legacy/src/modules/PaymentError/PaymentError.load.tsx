@@ -9,7 +9,7 @@ export const PaymentErrorLoad = (): JSX.Element => {
 
   const onRetry = (): void => {
     window.location.href = `${
-      process.env.REACT_APP_TREINTA_CHECKOUT_URL
+      window.ENV?.REACT_APP_TREINTA_CHECKOUT_URL
     }/${transactionId}${!isLogged ? "?=is_temp=true" : ""}`;
   };
 

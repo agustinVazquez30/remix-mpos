@@ -21,7 +21,7 @@ export const PaymentPendingLoad = () => {
 
   const onFinish = useCallback(() => {
     sessionStorage.clear();
-    window.location.href = `${process.env.REACT_APP_WEB_URL}`;
+    window.location.href = `${window.ENV?.REACT_APP_WEB_URL}`;
   }, []);
 
   return (

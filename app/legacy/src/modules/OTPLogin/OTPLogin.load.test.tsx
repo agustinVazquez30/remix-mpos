@@ -107,7 +107,7 @@ describe("< OTP Login />", () => {
 
     server.use(
       rest.get(
-        `${process.env.REACT_APP_ORCHESTRATOR_URL}/users/phone/validation`,
+        `${window.ENV?.REACT_APP_ORCHESTRATOR_URL}/users/phone/validation`,
         (req, res, ctx) => res(ctx.status(500))
       )
     );
@@ -141,7 +141,7 @@ describe("< OTP Login />", () => {
 
     server.use(
       rest.get(
-        `${process.env.REACT_APP_ORCHESTRATOR_URL}/users/phone/validation`,
+        `${window.ENV?.REACT_APP_ORCHESTRATOR_URL}/users/phone/validation`,
         (req, res, ctx) => res(ctx.status(200), ctx.json(""))
       )
     );

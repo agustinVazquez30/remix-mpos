@@ -55,7 +55,7 @@ describe("<PaymentErrorLoad />", () => {
 
     await waitFor(() => {
       expect(window.location.href).toBe(
-        `${process.env.REACT_APP_TREINTA_CHECKOUT_URL}/123abc`
+        `${window.ENV?.REACT_APP_TREINTA_CHECKOUT_URL}/123abc`
       );
     });
   });
@@ -89,7 +89,7 @@ describe("<PaymentErrorLoad />", () => {
     });
 
     expect(window.location.href).toEqual(
-      `${process.env.REACT_APP_TREINTA_CHECKOUT_URL}/TRANSACTION?=is_temp=true`
+      `${window.ENV?.REACT_APP_TREINTA_CHECKOUT_URL}/TRANSACTION?=is_temp=true`
     );
   });
 

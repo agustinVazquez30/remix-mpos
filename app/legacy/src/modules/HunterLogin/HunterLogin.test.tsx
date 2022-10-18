@@ -52,7 +52,7 @@ describe("<HunterLogin /> module", () => {
 
   test("should disabled form states & navigate is called when request was fired", async () => {
     const spreasheetId = "x98fF1da1";
-    process.env.REACT_APP_HUNTERS_SPREADSHEET_ID = spreasheetId;
+    window.ENV?.REACT_APP_HUNTERS_SPREADSHEET_ID = spreasheetId;
 
     render(<HunterLogin />);
 
