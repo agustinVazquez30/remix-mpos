@@ -49,10 +49,11 @@ export const links: LinksFunction = () => {
 
 export default function App() {
   const envs = useLoaderData();
-  const [state, setState] = useState<any>({});
+  const [state, setState] = useState<any>(defaultAppState);
 
   const data = {
-    ...JSON.parse(getItemFromStorage(AppContextKeys.APP)),
+    // ...defaultAppState.splitIOKeyValue,
+    // ...JSON.parse(getItemFromStorage(AppContextKeys.APP)),
     ...getAppActions(setState as any),
   };
 
