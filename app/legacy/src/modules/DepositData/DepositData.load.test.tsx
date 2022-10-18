@@ -233,7 +233,7 @@ describe("<DepositDataLoad />", () => {
 
     await waitFor(() => {
       expect(window.location.href).toBe(
-        `${process.env.REACT_APP_TREINTA_CHECKOUT_URL}/${transactionId}?utm_source=ola&utm_medium=k&utm_campaign=ase?`
+        `${window.ENV?.REACT_APP_TREINTA_CHECKOUT_URL}/${transactionId}?utm_source=ola&utm_medium=k&utm_campaign=ase?`
       );
     });
   });
@@ -385,7 +385,7 @@ describe("<DepositDataLoad />", () => {
 
     await waitFor(() => {
       expect(window.location.href).toBe(
-        `${process.env.REACT_APP_TREINTA_CHECKOUT_URL}/${transactionId}?is_temp=true&utm_source=&utm_medium=&utm_campaign=`
+        `${window.ENV?.REACT_APP_TREINTA_CHECKOUT_URL}/${transactionId}?is_temp=true&utm_source=&utm_medium=&utm_campaign=`
       );
     });
   });

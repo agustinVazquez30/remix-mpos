@@ -1,4 +1,4 @@
-import axios, {AxiosInstance} from 'axios';
+import axios, { AxiosInstance } from "axios";
 
 let clientAxios: AxiosInstance;
 
@@ -7,7 +7,7 @@ export const httpClientPayments = (): AxiosInstance => {
     clientAxios = axios.create({
       baseURL: process.env.REACT_APP_PAYMENTS_URL,
       headers: {
-        'x-api-key': process.env.REACT_APP_PAYMENTS_KEY || '',
+        "x-api-key": process.env.REACT_APP_PAYMENTS_KEY || "",
       },
     });
   }
@@ -22,7 +22,7 @@ export const httpClientOrchestrator = (): AxiosInstance => {
     clientOrchestrator = axios.create({
       baseURL: process.env.REACT_APP_ORCHESTRATOR_URL,
       headers: {
-        'x-api-key': process.env.REACT_APP_ORCHESTRATOR_KEY || '',
+        "x-api-key": process.env.REACT_APP_ORCHESTRATOR_KEY || "",
       },
     });
   }

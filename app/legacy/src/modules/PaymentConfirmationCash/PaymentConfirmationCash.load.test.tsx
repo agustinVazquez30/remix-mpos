@@ -88,7 +88,7 @@ describe("<PaymentConfirmationCashLoad />", () => {
       expect(newAmplitudeEvent).toHaveBeenCalled();
       expect(newBrazeEvent).toHaveBeenCalled();
       expect(newBrazeRevenueEvent).toHaveBeenCalled();
-      expect(window.location.href).toBe(process.env.REACT_APP_WEB_URL);
+      expect(window.location.href).toBe(window.ENV?.REACT_APP_WEB_URL);
     });
   });
 });

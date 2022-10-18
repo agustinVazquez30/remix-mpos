@@ -196,7 +196,7 @@ export const DepositDataLoad = () => {
     },
     onSuccess: ([transaction]) => {
       setTransactionId(transaction.id);
-      successTransactionRedirectRef.current = `${process.env.REACT_APP_TREINTA_CHECKOUT_URL}/${transaction.id}?${utmCheckoutQueryParams}`;
+      successTransactionRedirectRef.current = `${window.ENV?.REACT_APP_TREINTA_CHECKOUT_URL}/${transaction.id}?${utmCheckoutQueryParams}`;
 
       if (isCashPayment) {
         createEnrollmentTransaccion({
@@ -224,7 +224,7 @@ export const DepositDataLoad = () => {
     },
     onSuccess: (id) => {
       setTransactionId(id);
-      successTransactionRedirectRef.current = `${process.env.REACT_APP_TREINTA_CHECKOUT_URL}/${id}?is_temp=true&${utmCheckoutQueryParams}`;
+      successTransactionRedirectRef.current = `${window.ENV?.REACT_APP_TREINTA_CHECKOUT_URL}/${id}?is_temp=true&${utmCheckoutQueryParams}`;
 
       if (isCashPayment) {
         createEnrollmentTransaccion({ data: { transactionId: id } });
@@ -261,7 +261,7 @@ export const DepositDataLoad = () => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "x-api-key": process.env.REACT_APP_LOGISTICS_SECRET_KEY || "",
+        "x-api-key": window.ENV?.REACT_APP_LOGISTICS_SECRET_KEY || "",
       },
     },
     onSuccess: (data) => {

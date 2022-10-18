@@ -1,14 +1,14 @@
-import {AppActions, AppContextKeys, defaultAppState} from '.';
+import { AppActions, AppContextKeys, defaultAppState } from ".";
 
-import {AppContextType} from './models';
-import {setItemToStorage} from './utils';
+import { AppContextType } from "./models";
+import { setItemToStorage } from "./utils";
 
 export const getAppActions = (
-  setAuthState: (value: React.SetStateAction<AppContextType>) => void,
+  setAuthState: (value: React.SetStateAction<AppContextType>) => void
 ): AppActions => {
   const authActions: AppActions = {
-    logIn: payload => {
-      setAuthState(state => {
+    logIn: (payload) => {
+      setAuthState((state) => {
         const newState: AppContextType = {
           ...defaultAppState,
           ...state,
@@ -39,19 +39,19 @@ export const getAppActions = (
       });
     },
     logOut: () => {
-      setAuthState(state => {
+      setAuthState((state) => {
         const newState: AppContextType = {
           ...state,
           ...defaultAppState,
           persisted: true,
         };
-        setItemToStorage(AppContextKeys.APP, '');
+        setItemToStorage(AppContextKeys.APP, "");
 
         return newState;
       });
     },
     setIsWebView: () => {
-      setAuthState(state => {
+      setAuthState((state) => {
         const newState = {
           ...state,
           isWebView: true,
@@ -61,8 +61,8 @@ export const getAppActions = (
         return newState;
       });
     },
-    setTransactionId: payload => {
-      setAuthState(state => {
+    setTransactionId: (payload) => {
+      setAuthState((state) => {
         const newState: AppContextType = {
           ...state,
           transactionId: payload,
@@ -73,8 +73,8 @@ export const getAppActions = (
         return newState;
       });
     },
-    setPurchaseSummary: payload => {
-      setAuthState(state => {
+    setPurchaseSummary: (payload) => {
+      setAuthState((state) => {
         const newState: AppContextType = {
           ...state,
           purchaseSummary: {
@@ -89,8 +89,8 @@ export const getAppActions = (
         return newState;
       });
     },
-    setBasicInformation: payload => {
-      setAuthState(state => {
+    setBasicInformation: (payload) => {
+      setAuthState((state) => {
         const newState: AppContextType = {
           ...state,
           basicInformation: {
@@ -105,8 +105,8 @@ export const getAppActions = (
         return newState;
       });
     },
-    setBusinessInformation: payload => {
-      setAuthState(state => {
+    setBusinessInformation: (payload) => {
+      setAuthState((state) => {
         const newState: AppContextType = {
           ...state,
           businessInformation: {
@@ -121,8 +121,8 @@ export const getAppActions = (
         return newState;
       });
     },
-    setShipmentInformation: payload => {
-      setAuthState(state => {
+    setShipmentInformation: (payload) => {
+      setAuthState((state) => {
         const newState: AppContextType = {
           ...state,
           shipmentInformation: {
@@ -137,8 +137,8 @@ export const getAppActions = (
         return newState;
       });
     },
-    setDepositInformation: payload => {
-      setAuthState(state => {
+    setDepositInformation: (payload) => {
+      setAuthState((state) => {
         const newState: AppContextType = {
           ...state,
           depositInformation: {
@@ -153,8 +153,8 @@ export const getAppActions = (
         return newState;
       });
     },
-    setReceptionInformation: payload => {
-      setAuthState(state => {
+    setReceptionInformation: (payload) => {
+      setAuthState((state) => {
         const newState: AppContextType = {
           ...state,
           receptionInformation: {
@@ -169,8 +169,8 @@ export const getAppActions = (
         return newState;
       });
     },
-    setStoreInformation: payload => {
-      setAuthState(state => {
+    setStoreInformation: (payload) => {
+      setAuthState((state) => {
         const newState: AppContextType = {
           ...state,
           businessInformation: {
@@ -185,8 +185,8 @@ export const getAppActions = (
         return newState;
       });
     },
-    setTemporalCredentials: payload => {
-      setAuthState(state => {
+    setTemporalCredentials: (payload) => {
+      setAuthState((state) => {
         const newState: AppContextType = {
           ...state,
           temporalCredentials: {
@@ -203,8 +203,8 @@ export const getAppActions = (
         return newState;
       });
     },
-    setMPOSPaymentInformation: payload => {
-      setAuthState(state => {
+    setMPOSPaymentInformation: (payload) => {
+      setAuthState((state) => {
         const newState: AppContextType = {
           ...state,
           purchaseSummary: payload.purchaseSummary,
@@ -228,7 +228,7 @@ export const getAppActions = (
       });
     },
     setHasPreviousPurchase: () => {
-      setAuthState(state => {
+      setAuthState((state) => {
         const newState: AppContextType = {
           ...state,
           hasPreviousPurchase: true,
@@ -239,8 +239,8 @@ export const getAppActions = (
         return newState;
       });
     },
-    setHasAcceptedPurchasedOrder: payload => {
-      setAuthState(state => {
+    setHasAcceptedPurchasedOrder: (payload) => {
+      setAuthState((state) => {
         const newState: AppContextType = {
           ...state,
           hasAcceptedPurchasedOrder: payload,
@@ -251,8 +251,8 @@ export const getAppActions = (
         return newState;
       });
     },
-    setUtmParameters: payload => {
-      setAuthState(state => {
+    setUtmParameters: (payload) => {
+      setAuthState((state) => {
         const newState: AppContextType = {
           ...state,
           utmParameters: payload,
@@ -263,8 +263,8 @@ export const getAppActions = (
         return newState;
       });
     },
-    setIsHunters: payload => {
-      setAuthState(state => {
+    setIsHunters: (payload) => {
+      setAuthState((state) => {
         const newState: AppContextType = {
           ...state,
           isHunters: payload,
@@ -276,7 +276,7 @@ export const getAppActions = (
       });
     },
     setHuntersData(payload) {
-      setAuthState(state => {
+      setAuthState((state) => {
         const newState: AppContextType = {
           ...state,
           hunter: {
@@ -290,8 +290,8 @@ export const getAppActions = (
         return newState;
       });
     },
-    setSplitIOKeyValue: payload => {
-      setAuthState(state => {
+    setSplitIOKeyValue: (payload) => {
+      setAuthState((state) => {
         const newState = {
           ...state,
           splitIOKeyValue: {
@@ -305,8 +305,8 @@ export const getAppActions = (
         return newState;
       });
     },
-    setIdToken: payload => {
-      setAuthState(state => {
+    setIdToken: (payload) => {
+      setAuthState((state) => {
         const newState = {
           ...state,
           tokens: {
@@ -320,7 +320,7 @@ export const getAppActions = (
       });
     },
     resetContext: () => {
-      setAuthState(state => {
+      setAuthState((state) => {
         const newState = {
           ...state,
           ...defaultAppState,

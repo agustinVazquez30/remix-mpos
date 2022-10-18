@@ -57,7 +57,7 @@ export const OTPLoginLoad = () => {
         url: `users/phone/validation?phone=%2b${
           phoneNumber?.countryCode.replace("+", "") || ""
         }${phoneNumber?.number || ""}&countryId=${
-          process.env.REACT_APP_COUNTRY
+          window.ENV?.REACT_APP_COUNTRY
         }`,
         method: "GET",
       },
@@ -152,7 +152,7 @@ export const OTPLoginLoad = () => {
       headers: {
         authorization: `Bearer ${loginInfo?.idToken || ""}`,
         "user-uid": loginInfo?.uid || "",
-        "x-api-key": process.env.REACT_APP_ORCHESTRATOR_KEY || "",
+        "x-api-key": window.ENV?.REACT_APP_ORCHESTRATOR_KEY || "",
       },
     },
     onSuccess: (response) => {

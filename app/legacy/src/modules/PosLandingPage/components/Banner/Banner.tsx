@@ -35,7 +35,7 @@ export const Banner: React.FC = () => {
   const handleRedirectEvent = () => {
     newAmplitudeEvent("webPagosLandingContactMe", { utmParameters });
 
-    const url = replaceAll(process.env.REACT_APP_TREINTA_BUY_WITH_ADVISOR!, {
+    const url = replaceAll(window.ENV?.REACT_APP_TREINTA_BUY_WITH_ADVISOR!, {
       "-utm_source-": utmParameters.utmSource ?? DEFAULT_UTM_VALUE,
       "-utm_medium-": utmParameters.utmMedium ?? DEFAULT_UTM_VALUE,
       "-utm_campaign-": utmParameters.utmCampaign ?? DEFAULT_UTM_VALUE,

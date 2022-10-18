@@ -44,7 +44,6 @@ export function useQuery<ResponseType = any>(
   const source = CancelToken.source();
 
   const request = async (requestData: AxiosRequestConfig, api: ApiType) => {
-    console.warn("fetcy");
     setState((state) => ({
       ...state,
       isLoading: true,

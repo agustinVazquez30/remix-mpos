@@ -64,7 +64,7 @@ describe("<BasicInformation />", () => {
 
     expect(screen.getByTestId("terms-conditions-link")).toHaveAttribute(
       "href",
-      process.env.REACT_APP_TERMS_CONDITIONS_URL
+      window.ENV?.REACT_APP_TERMS_CONDITIONS_URL
     );
     expect(screen.getByTestId("terms-conditions-link")).toHaveAttribute(
       "target",
@@ -77,7 +77,7 @@ describe("<BasicInformation />", () => {
 
     expect(screen.getByTestId("data-privacy-link")).toHaveAttribute(
       "href",
-      process.env.REACT_APP_DATA_PRIVACY_URL
+      window.ENV?.REACT_APP_DATA_PRIVACY_URL
     );
     expect(screen.getByTestId("data-privacy-link")).toHaveAttribute(
       "target",

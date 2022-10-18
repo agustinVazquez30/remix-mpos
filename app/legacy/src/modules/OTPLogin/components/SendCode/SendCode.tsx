@@ -60,7 +60,7 @@ export const SendCode = ({
         </Typography>
         <PhoneInput
           defaultCountryId={
-            Number(process.env.REACT_APP_COUNTRY || -1) as CountriesIds
+            Number(window.ENV?.REACT_APP_COUNTRY || -1) as CountriesIds
           }
           placeholder={t("OTPLogin.sendCode.phoneInput.placeholder")}
           onChangeCountry={({ id, code }) =>

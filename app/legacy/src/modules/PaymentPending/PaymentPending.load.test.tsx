@@ -64,7 +64,7 @@ describe("<PaymentPendingLoad />", () => {
 
     await waitFor(() => {
       expect(mockClearSessionStorage).toHaveBeenCalled();
-      expect(window.location.href).toBe(process.env.REACT_APP_WEB_URL);
+      expect(window.location.href).toBe(window.ENV?.REACT_APP_WEB_URL);
     });
   });
 

@@ -1,4 +1,9 @@
-import { json, LoaderFunction, MetaFunction } from "@remix-run/node";
+import {
+  json,
+  LoaderFunction,
+  MetaFunction,
+  LinksFunction,
+} from "@remix-run/node";
 import {
   Links,
   LiveReload,
@@ -8,21 +13,26 @@ import {
   ScrollRestoration,
   useLoaderData,
 } from "@remix-run/react";
+import { useMemo, useState } from "react";
 import { DefaultTheme, ThemeProvider } from "styled-components";
 import { Theme } from "./legacy/src/config/Theme";
 import {
   AppContext,
+  AppContextKeys,
   defaultAppContext,
+  defaultAppState,
+  getAppActions,
+  useAppContext,
 } from "./legacy/src/contexts/AppContext";
 import i18next from "~/i18next.server";
 import { useTranslation } from "react-i18next";
 import { useChangeLanguage } from "remix-i18next";
 
-type LoaderData = { locale: string };
+type LoaderData = { locale: string; ENV: NodeJS.ProcessEnv };
 
 export let loader: LoaderFunction = async ({ request }) => {
   let locale = await i18next.getLocale(request);
-  return json<LoaderData>({ locale });
+  return json<LoaderData>({ locale, ENV: process.env });
 };
 
 export let handle = {
@@ -35,12 +45,34 @@ export const meta: MetaFunction = () => ({
   viewport: "width=device-width,initial-scale=1",
 });
 
+export const links: LinksFunction = () => {
+  return [
+    { rel: "preconnect", href: "https://fonts.googleapis.com" },
+    {
+      rel: "preconnect",
+      href: "https://fonts.gstatic.com",
+    },
+    {
+      rel: "stylesheet",
+      href: "https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap",
+    },
+  ];
+};
+
 export default function App() {
   let { locale } = useLoaderData<LoaderData>();
 
   let { i18n } = useTranslation();
 
   useChangeLanguage(locale);
+  const envs = useLoaderData();
+  const [state, setState] = useState<any>(defaultAppState);
+
+  const data = {
+    // ...defaultAppState.splitIOKeyValue,
+    // ...JSON.parse(getItemFromStorage(AppContextKeys.APP)),
+    ...getAppActions(setState as any),
+  };
 
   return (
     <html lang={locale} dir={i18n.dir()}>
@@ -56,11 +88,16 @@ export default function App() {
         />
       </head>
       <body>
-        <AppContext.Provider value={defaultAppContext}>
+        <AppContext.Provider value={{ ...data, ...state }}>
           <ThemeProvider theme={Theme as DefaultTheme}>
             <Outlet />
           </ThemeProvider>
         </AppContext.Provider>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.ENV = ${JSON.stringify(envs.ENV)}`,
+          }}
+        />
         <ScrollRestoration />
         <Scripts />
         <LiveReload />

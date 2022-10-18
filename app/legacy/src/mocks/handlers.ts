@@ -1,9 +1,9 @@
 import { ServiceStatus, ServiceTypes } from "~/legacy/src/constants";
 import { rest } from "msw";
 
-export const TREINTA_API_URL = process.env.REACT_APP_TREINTA_API_URL;
-export const ORCHESTRATOR_URL = process.env.REACT_APP_ORCHESTRATOR_URL;
-export const PAYMENTS_URL = process.env.REACT_APP_PAYMENTS_URL;
+export const TREINTA_API_URL = window.ENV?.REACT_APP_TREINTA_API_URL;
+export const ORCHESTRATOR_URL = window.ENV?.REACT_APP_ORCHESTRATOR_URL;
+export const PAYMENTS_URL = window.ENV?.REACT_APP_PAYMENTS_URL;
 
 export const handlers = [
   rest.get(`${PAYMENTS_URL}/parameters`, (req, res, ctx) =>

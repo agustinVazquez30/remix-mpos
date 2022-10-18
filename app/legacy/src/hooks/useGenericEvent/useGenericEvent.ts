@@ -29,30 +29,31 @@ export const useGenericEvent = () => {
     platforms = DEFAULT_PLATFORMS,
     setDefaultArgs = true,
   }: GenerateEvent<EventArgs>) => {
-    const userBasicInfo = getBasicInfoProperties({
-      ...basicInformation,
-      userId: isLogged ? basicInformation.userId : temporalCredentials.userId,
-      ...(customBasicInfo ? customBasicInfo : {}),
-    });
+    console.log("MOCK EVENT");
+    // const userBasicInfo = getBasicInfoProperties({
+    //   ...basicInformation,
+    //   userId: isLogged ? basicInformation.userId : temporalCredentials.userId,
+    //   ...(customBasicInfo ? customBasicInfo : {}),
+    // });
 
-    const event: Event<EventArgs> = [
-      eventName,
-      {
-        ...(setDefaultArgs
-          ? {
-              ...userBasicInfo,
-              utmParameters,
-            }
-          : {}),
-        ...(hunter.id || isHunters ? { isHunters: true } : { isOrganic: true }),
-        ...(eventArgs || {}),
-      },
-    ];
+    // const event: Event<EventArgs> = [
+    //   eventName,
+    //   {
+    //     ...(setDefaultArgs
+    //       ? {
+    //           ...userBasicInfo,
+    //           utmParameters,
+    //         }
+    //       : {}),
+    //     ...(hunter.id || isHunters ? { isHunters: true } : { isOrganic: true }),
+    //     ...(eventArgs || {}),
+    //   },
+    // ];
 
-    if (platforms.amplitude) {
-      updateUserIfNeeded(userBasicInfo.userId);
-      newAmplitudeEvent(...event);
-    }
+    // if (platforms.amplitude) {
+    //   updateUserIfNeeded(userBasicInfo.userId);
+    //   newAmplitudeEvent(...event);
+    // }
     // if (platforms.braze) {
     //   if (isFreshData) {
     //     updateUserBasicInformation(userBasicInfo);

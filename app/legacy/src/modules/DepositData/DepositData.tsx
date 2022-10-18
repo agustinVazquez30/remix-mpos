@@ -82,7 +82,7 @@ export const DepositData = ({
   const [isImmediatePayment, setIsImmediatePayment] = useState(false);
 
   const banks: { id: number; name: string }[] =
-    banksMap.get(Number(process.env.REACT_APP_COUNTRY || -1)) || [];
+    banksMap.get(Number(window.ENV?.REACT_APP_COUNTRY || -1)) || [];
   const bankOptions = banks.map((bank: { id: number; name: string }) => ({
     id: bank.id,
     label: bank.name,

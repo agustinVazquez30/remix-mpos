@@ -46,21 +46,29 @@ export const CANCEL_REQUEST = "cancel-request-by-unmount-component";
 
 export const ReturnUrlFinish = (buttonSignIn: boolean, loading: boolean) => {
   if (buttonSignIn && !loading) {
-    return `${process.env.REACT_APP_WEB_LOGIN_URL}`;
+    return `${window.ENV?.REACT_APP_WEB_LOGIN_URL}`;
   } else {
-    return `${process.env.REACT_APP_WEB_URL}`;
+    return `${window.ENV?.REACT_APP_WEB_URL}`;
   }
 };
 
+const countryID =
+  typeof process !== "undefined"
+    ? process?.env.REACT_APP_COUNTRY
+    : typeof window !== "undefined"
+    ? window.ENV?.REACT_APP_COUNTRY || 1
+    : 1;
+
 export const DefaultCountry = {
-  countryId: Number(process.env.REACT_APP_COUNTRY || -1),
-  countryCode:
-    getCountry(Number(process.env.REACT_APP_COUNTRY || -1) as CountriesIds)
-      .code || "",
+  countryId: Number(countryID || -1),
+  countryCode: getCountry(Number(countryID || -1) as CountriesIds).code || "",
 };
 
 export const GTMConfig = {
-  gtmId: process.env.REACT_APP_GOOGLE_TAG_MANAGER_ID!,
+  gtmId:
+    typeof process !== "undefined"
+      ? process.env.REACT_APP_GOOGLE_TAG_MANAGER_ID
+      : window.ENV?.REACT_APP_GOOGLE_TAG_MANAGER_ID || "random",
 };
 
 export enum FranchisesCards {
