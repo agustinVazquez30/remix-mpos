@@ -26,5 +26,5 @@ export const Icon = ({
   width?: number;
   testId?: string;
 }) => {
-  return <>iconnn</>;
+  return <></>;
 };
