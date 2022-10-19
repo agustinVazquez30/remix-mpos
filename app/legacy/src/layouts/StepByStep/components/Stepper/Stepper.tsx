@@ -1,6 +1,5 @@
 import { STEPS } from "../../constants";
 import { Step } from "../Step/Step";
-import { useShowZendesk } from "~/legacy/src/utils/zendesk";
 
 type StepperType = {
   currentStep: string;
@@ -12,8 +11,6 @@ export const Stepper = ({ currentStep }: StepperType) => {
   const activeIndex = stepsValues.findIndex(
     (item) => currentStep === item.path
   );
-
-  useShowZendesk();
 
   return (
     <div>

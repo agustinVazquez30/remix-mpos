@@ -1,8 +1,8 @@
 import { Container } from "./styles";
-import { ROUTES } from "~/legacy/src/constants";
+import type { ROUTES } from "~/legacy/src/constants";
 import TickCircle from "~/legacy/src/assets/tick-circle-yellow-icon.png";
 import { Typography } from "@30sas/web-ui-kit-core";
-import { useAllowedNavigation } from "~/legacy/src/hooks/useAllowedNavigation";
+import { useNavigate } from "react-router-dom";
 
 type StepType = {
   index: number;
@@ -13,7 +13,7 @@ type StepType = {
 };
 
 export const Step = ({ index, activeIndex, title, isLast, path }: StepType) => {
-  const { navigate } = useAllowedNavigation();
+  const navigate = useNavigate();
   const isActive = index === activeIndex;
   const isCompleted = index < activeIndex;
   const lastPageIndex = 4;

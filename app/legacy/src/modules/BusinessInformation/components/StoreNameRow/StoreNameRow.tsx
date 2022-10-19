@@ -97,6 +97,7 @@ export const StoreNameRow = ({ store, setStore }: any) => {
       ) : (
         <div className="custom-input">
           <InputBase
+            name="store"
             label={rowLabel}
             value={store.label}
             onChange={handleChange}
