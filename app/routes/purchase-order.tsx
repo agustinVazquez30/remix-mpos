@@ -1,7 +1,10 @@
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { httpClientPayments } from "~/legacy/src/config/Api";
-import { PurchaseOrder } from "~/legacy/src/pages";
+import { LeftImage } from "~/legacy/src/layouts";
+import YourNewMPOS from "~/legacy/src/assets/mpos-background.png";
+import { PurchaseSummaryLoad } from "~/legacy/src/modules";
+import { WhatsappButton } from "~/legacy/src/commons/components";
 
 export const loader = async () => {
   try {
@@ -11,10 +14,17 @@ export const loader = async () => {
     console.error(e);
   }
 
-  return json({});
+  return json([]);
 };
 
 export default function Index() {
   const data = useLoaderData();
-  return <PurchaseOrder data={data} />;
+
+  return (
+    <LeftImage
+      image={YourNewMPOS}
+      form={<PurchaseSummaryLoad data={data} />}
+      floatButton={<WhatsappButton />}
+    />
+  );
 }
