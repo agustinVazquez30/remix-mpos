@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { useScrollTo } from "~/legacy/src/hooks/useScrollTo";
 import { useTranslation } from "react-i18next";
 
-const IconUser = () => <>random</>;
+const IconUser = () => <></>;
 
 export const Header = () => {
   const { t } = useTranslation();
