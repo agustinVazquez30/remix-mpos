@@ -4,7 +4,7 @@ import {
   LoginPayload,
   useAppContext,
 } from "~/legacy/src/contexts/AppContext";
-import { ConfirmationResult, RecaptchaVerifier, getAuth } from "firebase/auth";
+// import { ConfirmationResult, RecaptchaVerifier, getAuth } from "firebase/auth";
 import { CountriesIds, getCountry } from "@30sas/web-ui-kit-utils";
 import {
   LoginTypes,
@@ -55,11 +55,11 @@ export const BasicInformationLoad = () => {
 
   const { userId, firstName, lastName, phoneNumber, email } = basicInformation;
   const { storeId } = businessInformation;
-  const auth = getAuth();
+  // const auth = getAuth();
   const { navigate } = useAllowedNavigation();
 
   const [confirmationResult, setConfirmationResult] = useState<
-    ConfirmationResult | undefined
+    any | undefined
   >();
   const [showLoginErrorModal, setShowLoginErrorModal] = useState({
     show: false,
@@ -383,7 +383,7 @@ export const BasicInformationLoad = () => {
   };
 
   const setAuthorizationToken = async (user: any) => {
-    const idToken = (await auth.currentUser?.getIdToken()) || "";
+    const idToken = '(await auth.currentUser?.getIdToken()) || "";';
 
     setIdToken(idToken);
     setLoginInfo({ ...loginInfo, uid: user.uid, idToken });
@@ -532,28 +532,28 @@ export const BasicInformationLoad = () => {
     setOTPLoginFailed(false);
   }, []);
 
-  useEffect(() => {
-    window.recaptchaVerifier = new RecaptchaVerifier(
-      "recaptcha",
-      {
-        size: "invisible",
-        callback: () => {
-          setIsVerifiedCaptcha(true);
-          setVerifyCaptchaIsLoading(false);
-        },
-        "expired-callback": () => {
-          setIsVerifiedCaptcha(false);
-          setVerifyCaptchaIsLoading(false);
-        },
-      },
-      auth
-    );
+  // useEffect(() => {
+  //   window.recaptchaVerifier = new RecaptchaVerifier(
+  //     "recaptcha",
+  //     {
+  //       size: "invisible",
+  //       callback: () => {
+  //         setIsVerifiedCaptcha(true);
+  //         setVerifyCaptchaIsLoading(false);
+  //       },
+  //       "expired-callback": () => {
+  //         setIsVerifiedCaptcha(false);
+  //         setVerifyCaptchaIsLoading(false);
+  //       },
+  //     },
+  //     auth
+  //   );
 
-    return () => {
-      window.recaptchaVerifier?.clear?.();
-      setIsVerifiedCaptcha(false);
-    };
-  }, [auth]);
+  //   return () => {
+  //     window.recaptchaVerifier?.clear?.();
+  //     setIsVerifiedCaptcha(false);
+  //   };
+  // }, [auth]);
 
   useEffect(() => {
     if (!isUpdatingData || !basicInformation.isComplete) return;

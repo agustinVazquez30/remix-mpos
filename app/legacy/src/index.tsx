@@ -8,10 +8,7 @@ import { GlobalStyles } from "./globalStyles";
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { createRoot } from "react-dom/client";
-import { initializeFirebaseApp } from "~/legacy/src/config/Firebase/firebase";
 import reportWebVitals from "./reportWebVitals";
-
-initializeFirebaseApp();
 
 const container = document.getElementById("root") as HTMLElement;
 
