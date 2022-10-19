@@ -21,10 +21,8 @@ import { Theme } from "./legacy/src/config/Theme";
 import {
   AppContext,
   AppContextKeys,
-  defaultAppContext,
   defaultAppState,
   getAppActions,
-  useAppContext,
 } from "./legacy/src/contexts/AppContext";
 import i18next from "~/i18next.server";
 import { useTranslation } from "react-i18next";

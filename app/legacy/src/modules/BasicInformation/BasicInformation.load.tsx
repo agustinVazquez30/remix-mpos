@@ -4,7 +4,7 @@ import {
   LoginPayload,
   useAppContext,
 } from "~/legacy/src/contexts/AppContext";
-import { ConfirmationResult, RecaptchaVerifier, getAuth } from "firebase/auth";
+// import { ConfirmationResult, RecaptchaVerifier, getAuth } from "firebase/auth";
 import { CountriesIds, getCountry } from "@30sas/web-ui-kit-utils";
 import {
   LoginTypes,
@@ -31,6 +31,7 @@ import { newDatadogLog } from "~/legacy/src/config/Datadog";
 import { useAllowedNavigation } from "~/legacy/src/hooks/useAllowedNavigation";
 import { useGenericEvent } from "~/legacy/src/hooks/useGenericEvent";
 import { useQuery } from "~/legacy/src/hooks";
+import { useNavigate } from "react-router-dom";
 
 const OTP_CHANNEL = "sms";
 const OTP_SOURCE = "signinOtp";
@@ -52,14 +53,13 @@ export const BasicInformationLoad = () => {
     setIdToken,
   } = useAppContext();
   const generateEvent = useGenericEvent();
+  const navigate = useNavigate();
 
   const { userId, firstName, lastName, phoneNumber, email } = basicInformation;
   const { storeId } = businessInformation;
-  const auth = getAuth();
-  const { navigate } = useAllowedNavigation();
 
   const [confirmationResult, setConfirmationResult] = useState<
-    ConfirmationResult | undefined
+    any | undefined
   >();
   const [showLoginErrorModal, setShowLoginErrorModal] = useState({
     show: false,
@@ -383,7 +383,7 @@ export const BasicInformationLoad = () => {
   };
 
   const setAuthorizationToken = async (user: any) => {
-    const idToken = (await auth.currentUser?.getIdToken()) || "";
+    const idToken = '(await auth.currentUser?.getIdToken()) || "";';
 
     setIdToken(idToken);
     setLoginInfo({ ...loginInfo, uid: user.uid, idToken });
@@ -453,19 +453,20 @@ export const BasicInformationLoad = () => {
     formInfo: BasicInformationPayload
   ): Promise<void> => {
     setBasicInformation(formInfo);
+    navigate(`/${ROUTES.BUSINESS_INFORMATION}`);
 
-    newDatadogLog("WebPagosInformation", {
-      userId,
-      ...formInfo,
-      step: 1,
-    });
-    generateEvent({
-      isFreshData: true,
-      customBasicInfo: { ...formInfo, userId },
-      eventName: "WebPagosBasicInformationConfirmed",
-    });
+    // newDatadogLog("WebPagosInformation", {
+    //   userId,
+    //   ...formInfo,
+    //   step: 1,
+    // });
+    // generateEvent({
+    //   isFreshData: true,
+    //   customBasicInfo: { ...formInfo, userId },
+    //   eventName: "WebPagosBasicInformationConfirmed",
+    // });
 
-    setIsUpdatingData(true);
+    // setIsUpdatingData(true);
   };
 
   const formatPhoneNumber = useCallback((): PhoneNumber => {
@@ -531,29 +532,6 @@ export const BasicInformationLoad = () => {
     setShowOTPModal(false);
     setOTPLoginFailed(false);
   }, []);
-
-  useEffect(() => {
-    window.recaptchaVerifier = new RecaptchaVerifier(
-      "recaptcha",
-      {
-        size: "invisible",
-        callback: () => {
-          setIsVerifiedCaptcha(true);
-          setVerifyCaptchaIsLoading(false);
-        },
-        "expired-callback": () => {
-          setIsVerifiedCaptcha(false);
-          setVerifyCaptchaIsLoading(false);
-        },
-      },
-      auth
-    );
-
-    return () => {
-      window.recaptchaVerifier?.clear?.();
-      setIsVerifiedCaptcha(false);
-    };
-  }, [auth]);
 
   useEffect(() => {
     if (!isUpdatingData || !basicInformation.isComplete) return;
