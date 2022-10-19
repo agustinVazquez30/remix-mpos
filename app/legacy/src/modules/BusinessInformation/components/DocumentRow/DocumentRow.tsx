@@ -1,35 +1,29 @@
-import {
-  DOCUMENT_TYPE_CE,
-  DOCUMENT_TYPE_PEP,
-} from "~/legacy/src/modules/BusinessInformation/constants";
+// import {
+//   DOCUMENT_TYPE_CE,
+//   DOCUMENT_TYPE_PEP,
+// } from "~/legacy/src/modules/BusinessInformation/constants";
 import { SplitIOTreatmentNames, useSplitIO } from "~/legacy/src/config/SplitIo";
 import {
   getDocumentTypesNaturalPerson,
-  isValidDocument,
+  // isValidDocument,
 } from "~/legacy/src/modules/BusinessInformation/utils";
-import { Calendar } from "@30sas/web-ui-kit-core";
+// import { Calendar } from "@30sas/web-ui-kit-core";
 import { Container } from "./styles";
-import { DocumentRowProps } from "./types";
+import type { DocumentRowProps } from "./types";
 import { DocumentTypes } from "~/legacy/src/constants";
 import { InputSelect } from "~/legacy/src/commons/components";
 import { useTranslation } from "react-i18next";
 
-export const DocumentRow: React.FC<DocumentRowProps> = ({
-  document,
-  show,
-  expeditionDate,
-  setDocument,
-  setExpeditionDate,
-}) => {
+export const DocumentRow: React.FC<DocumentRowProps> = ({ show, error }) => {
   const { t } = useTranslation();
   const { State: noShowDocumentPEP, loading } = useSplitIO(
     SplitIOTreatmentNames.ActivationNoPEPPOS
   );
 
-  const shouldOpenExpeditionDate = [
-    DOCUMENT_TYPE_CE,
-    DOCUMENT_TYPE_PEP,
-  ].includes(document.type);
+  // const shouldOpenExpeditionDate = [
+  //   DOCUMENT_TYPE_CE,
+  //   DOCUMENT_TYPE_PEP,
+  // ].includes(document.type);
 
   let getDocumentTypeWithSplit = getDocumentTypesNaturalPerson();
   if (!loading && !noShowDocumentPEP) {
@@ -38,30 +32,23 @@ export const DocumentRow: React.FC<DocumentRowProps> = ({
     );
   }
 
-  const handleChangeExpeditionDate = (value: any) => {
-    const date = value as Date;
-    setExpeditionDate(date.toISOString());
-  };
-
   return (
-    <Container show={show} showExpeditionDate={shouldOpenExpeditionDate}>
+    <Container show={show} showExpeditionDate={false}>
       <InputSelect
+        name="document"
+        onChange={() => {}}
         label={t("businessInformation.document.label")}
         type="number"
-        name="id"
+        dropdownName="documentType"
         options={getDocumentTypeWithSplit}
-        onChange={setDocument}
         className="custom-input document__input"
         placeholder={t("businessInformation.document.placeholder")}
         testId="document-input"
-        value={document}
-        error={
-          !!document.value && !isValidDocument(document.type, document.value)
-        }
-        errorText={t("businessInformation.documentError.cc")}
+        error={Boolean(error)}
+        errorText={error}
       />
 
-      {shouldOpenExpeditionDate && (
+      {/* {shouldOpenExpeditionDate && (
         <div className="custom-input document__expedition-date">
           <Calendar
             locale="es"
@@ -69,7 +56,7 @@ export const DocumentRow: React.FC<DocumentRowProps> = ({
             openTo="day"
             views={["year", "month", "day"]}
             label={t("businessInformation.expeditionDate.label")}
-            onChange={handleChangeExpeditionDate}
+            onChange={setExpeditionDate}
             externalValue={
               !!expeditionDate ? new Date(expeditionDate) : undefined
             }
@@ -77,7 +64,7 @@ export const DocumentRow: React.FC<DocumentRowProps> = ({
             disableFuture
           />
         </div>
-      )}
+      )} */}
     </Container>
   );
 };

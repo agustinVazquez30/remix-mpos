@@ -6,8 +6,8 @@ import { ROUTES } from "~/legacy/src/constants";
 import { STEPS } from "../../constants";
 import Treinta from "~/legacy/src/assets/treinta.png";
 import { Typography } from "@30sas/web-ui-kit-core";
-import { useAllowedNavigation } from "~/legacy/src/hooks/useAllowedNavigation";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
 type RightHeaderType = {
   currentStep: string;
@@ -15,7 +15,7 @@ type RightHeaderType = {
 
 export const RightHeader = ({ currentStep }: RightHeaderType) => {
   const { t } = useTranslation();
-  const { navigate } = useAllowedNavigation();
+  const navigate = useNavigate();
   const stepsArray = Object.values(STEPS);
   const stepIndex: number = stepsArray.findIndex(
     (item) => currentStep === item.path

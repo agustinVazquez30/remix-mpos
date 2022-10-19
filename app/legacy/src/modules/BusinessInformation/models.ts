@@ -2,14 +2,8 @@ import { ROUTES, ServiceStatus, TypePerson } from "~/legacy/src/constants";
 import { BusinessCategory } from "../../commons/types/business-category.type";
 
 export type BusinessInformationProps = {
-  onCustomEvent: (data: BusinessInformationType) => void;
-  onContinue: (
-    data: BusinessInformationType,
-    hasForbiddenActivities: boolean
-  ) => void;
   testId?: string;
   initValues: BusinessInformationType;
-  isLoading: boolean;
   isMailError: boolean;
   showAlreadyExistsModal: boolean;
   closeAlreadyExistsModal: () => void;

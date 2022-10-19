@@ -5,7 +5,8 @@ import type { AxiosError } from "axios";
 import { documentTypesMap } from "@30sas/web-ui-kit-utils";
 import { i18n } from "~/legacy/src/config/Translation";
 
-const country = window.ENV?.REACT_APP_COUNTRY || -1;
+const country =
+  typeof window !== "undefined" ? window.ENV?.REACT_APP_COUNTRY : -1;
 export const defaultSubcategory = [
   {
     id: -1,

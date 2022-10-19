@@ -13,6 +13,7 @@ import { useTheme } from "styled-components";
 export const InputSelect = ({
   testId = "default-input-select",
   name = "",
+  dropdownName = "",
   type = "text",
   placeholder = "",
   options,
@@ -63,6 +64,7 @@ export const InputSelect = ({
       <MainContainer borderColor={inputBorderColor}>
         <SelectContainer borderColor={inputBorderColor}>
           <CustomDropDown
+            name="documentTypeDescription"
             className="select"
             dropdownOptions={options}
             onChange={handleChangeSelect}
@@ -71,6 +73,7 @@ export const InputSelect = ({
             dataTestId={`${testId}-dropdown`}
             disabled={disabled}
           />
+          <input type="hidden" name={dropdownName} value={1} />
           <Input
             type={type}
             name={name}

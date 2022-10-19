@@ -1,8 +1,7 @@
-import {Alert} from '@30sas/web-ui-kit-core';
-import {DocumentAlertProps} from './types';
+import { Alert } from "@30sas/web-ui-kit-core";
+import type { DocumentAlertProps } from "./types";
 
 export const DocumentAlert: React.FC<DocumentAlertProps> = ({
-  icon,
   backgroundColor,
   textColor,
   backgroundType,
@@ -14,7 +13,7 @@ export const DocumentAlert: React.FC<DocumentAlertProps> = ({
 }) => {
   return (
     <Alert
-      Icon={icon}
+      Icon={null}
       className="document-alert"
       backgroundColor={backgroundColor}
       backgroundType={backgroundType}

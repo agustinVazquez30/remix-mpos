@@ -2,7 +2,7 @@ import { Container } from "./styles";
 import HeaderImage from "~/legacy/src/assets/stepper-header-decoration.png";
 import MposImage from "~/legacy/src/assets/mpos.png";
 import { ROUTES } from "~/legacy/src/constants";
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 import { RightHeader } from "./components";
 import { Stepper } from "./components";
 import Treinta from "~/legacy/src/assets/treinta.png";
