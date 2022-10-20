@@ -1,4 +1,3 @@
-import { parseApiData } from "./constants";
 import { ROUTES } from "~/legacy/src/constants";
 import {
   PurchaseSummaryPayload,
@@ -6,7 +5,6 @@ import {
   useAppContext,
 } from "~/legacy/src/contexts/AppContext";
 import { SplitIOTreatmentNames, useSplitIO } from "~/legacy/src/config/SplitIo";
-import { useQueryLocation } from "~/legacy/src/hooks";
 import { PurchaseSummary } from "./PurchaseSummary";
 import { useGenericEvent } from "~/legacy/src/hooks/useGenericEvent";
 import { useNavigate } from "react-router-dom";
