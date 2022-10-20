@@ -24,7 +24,7 @@ export const PurchaseSummaryLoad = ({ data }: any) => {
   );
   const { mposQuantity } = purchaseSummary;
 
-  const { mposValue, mposProduct, costOfShipping } = parseApiData(data);
+  const { mposValue, mposProduct, costOfShipping } = data;
 
   const onContinue = (info: PurchaseSummaryPayload, throwEvent: boolean) => {
     setSplitIOKeyValue({
