@@ -19,7 +19,7 @@ type TokenInCountryInfo =
 
 export const useGetValueRemoteConfig = (token: TokenInCountryInfo) => {
   const remoteConfig = getRemoteConfig();
-  const value = getValue(remoteConfig, "countries_v2");
+  const value = getValue(remoteConfig, "countries_v2_develop");
   const stringValue = value?.asString() || "";
   let parseValue;
 

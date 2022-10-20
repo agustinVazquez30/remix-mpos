@@ -16,6 +16,7 @@ import { redirect } from "~/legacy/src/utils/redirect";
 import { useContext } from "react";
 import { useTheme } from "styled-components";
 import { useTranslation } from "react-i18next";
+import { formatToCurrency } from "~/legacy/src/utils/format";
 
 const DEFAULT_UTM_VALUE = "xxxxx";
 
@@ -27,7 +28,7 @@ const replaceAll = (text: string, map: Record<string, string>): string => {
   );
 };
 
-export const Banner: React.FC = () => {
+export const Banner: React.FC<any> = ({ data }: any) => {
   const { utmParameters } = useContext(AppContext);
   const { t } = useTranslation();
   const theme = useTheme() as Theme;
@@ -65,7 +66,7 @@ export const Banner: React.FC = () => {
         {t("posLandingPage.buyNowCurrentPrice")}{" "}
         <del>{t("posLandingPage.oldPrice")}</del>{" "}
         <span className="buy-now-new-price">
-          {t("posLandingPage.newPrice")}!
+          {formatToCurrency(data.mposValue)}!
         </span>
       </BuyNow>
       <ImgContainer style={{ gridArea: "image" }}>

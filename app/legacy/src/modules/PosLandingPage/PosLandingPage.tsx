@@ -15,7 +15,7 @@ import { useAppContext } from "~/legacy/src/contexts/AppContext";
 import { useGenericEvent } from "~/legacy/src/hooks/useGenericEvent";
 import { useParams } from "@remix-run/react";
 
-export const PosLandingPage = () => {
+export const PosLandingPage = ({ data }: any) => {
   const { search } = useParams();
   const { setHasAcceptedPurchasedOrder, setUtmParameters } = useAppContext();
   const generateEvent = useGenericEvent();
@@ -61,13 +61,13 @@ export const PosLandingPage = () => {
   return (
     <Container>
       <Landing>
-        <Banner />
+        <Banner data={data} />
         <About />
         {splitAppTreinta}
         <PaymentCalculatorLoad />
         {showVideoLanding && <VideoLanding />}
         <Support help={helpButton} />
-        <Faq />
+        <Faq data={data} />
         <Footer help={helpButton} />
       </Landing>
     </Container>
