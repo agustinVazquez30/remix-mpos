@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { Container } from "./styles";
 import { useFieldsDisabled } from "./hooks/useFieldsDisabled";
 import { useTranslation } from "react-i18next";
-import { Form, useActionData, useFetcher, useSubmit } from "@remix-run/react";
+import { useFetcher } from "@remix-run/react";
 import { STATES } from "~/routes/basic-information-handler";
 
 export const BasicInformation = () => {
